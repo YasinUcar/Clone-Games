@@ -22,11 +22,15 @@ public class PlayerController : MonoBehaviour
     }
     void Movement()
     {
-        horizontal = Input.GetAxisRaw("Horizontal"); //Getaxis bir yumuşatma uygularken raw direk değeri verir -1 1 ve 0 gibi ara değerler bulundurmaz
-        vertical = Input.GetAxisRaw("Vertical");
-        Vector2 newPos = new Vector2();
 
-        rig2d.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
+        horizontal = Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime; //Getaxis bir yumuşatma uygularken raw direk değeri verir -1 1 ve 0 gibi ara değerler bulundurmaz
+        vertical = Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime;
+        //rig2d.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
+        Vector2 newPos = new Vector2();
+        newPos.x = Mathf.Clamp(transform.position.x + horizontal, minBounds.x, maxBounds.x);
+        newPos.y = Mathf.Clamp(transform.position.y + vertical, minBounds.y, maxBounds.y);
+        transform.position = newPos;
+
 
 
     }
