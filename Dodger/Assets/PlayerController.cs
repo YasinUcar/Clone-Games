@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime;
         //rig2d.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
         Vector2 newPos = new Vector2();
-        newPos.x = Mathf.Clamp(transform.position.x + horizontal, minBounds.x, maxBounds.x);
-        newPos.y = Mathf.Clamp(transform.position.y + vertical, minBounds.y, maxBounds.y);
+        newPos.x = Mathf.Clamp(transform.position.x + horizontal, minBounds.x + 1, maxBounds.x - 1);
+        newPos.y = Mathf.Clamp(transform.position.y + vertical, minBounds.y + 1, maxBounds.y - 1);
         transform.position = newPos;
 
 

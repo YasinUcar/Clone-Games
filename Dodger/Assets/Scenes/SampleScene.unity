@@ -123,6 +123,57 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &163117681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 163117682}
+  - component: {fileID: 163117683}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &163117682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163117681}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.35, y: 6.52, z: 0.025787912}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163117683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163117681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69d26558d73bd44d8c4ce7a30fbd225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnObjects:
+  - {fileID: 8460526921508071801, guid: da12cef319f285b45b4a3045b4dcebb9, type: 3}
+  - {fileID: 6379010575250040027, guid: 397ed26093b85954cb3ea54cb049eb4d, type: 3}
+  - {fileID: 3542906545090324768, guid: 92ddb4cd9fe8968409a1df4c0969ecfe, type: 3}
+  - {fileID: 4243024340753951906, guid: e2aee54c87c6b1d4b9a99a12ffe62d22, type: 3}
+  - {fileID: 8782640759081875199, guid: a7dea9de1f40eae45a6461d1dde25292, type: 3}
+  - {fileID: 2823757755768345770, guid: 0c406b3224b7cf946afdbdac6fbefd0f, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,8 +270,9 @@ GameObject:
   - component: {fileID: 1814240938}
   - component: {fileID: 1814240940}
   - component: {fileID: 1814240941}
+  - component: {fileID: 1814240942}
   m_Layer: 0
-  m_Name: bald_man
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,4 +378,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be08b11369c97484cbee904eb4b4972d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 8
+--- !u!58 &1814240942
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814240937}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.029261112, y: -0.0658375}
+  serializedVersion: 2
+  m_Radius: 1.0824873
