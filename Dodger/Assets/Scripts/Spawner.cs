@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
             var randPos = Random.Range(minBounds.x + 0.5f, maxBounds.x - 0.5f);
             var position = new Vector2(randPos, transform.position.y);
             GameObject gameObject = Instantiate(spawnObjects[Random.Range(0, spawnObjects.Length)], position, Quaternion.identity);
-            yield return new WaitForSeconds(0.5f - Time.deltaTime);
+            yield return new WaitForSeconds(Random.Range(0.1f,0.4f));
             Destroy(gameObject, 5f);
             score.IncreaseScore(10);
         }

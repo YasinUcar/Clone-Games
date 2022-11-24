@@ -40,7 +40,7 @@ public class TimerController : MonoBehaviour
                 startGame = true;
                 break;
             case false:
-                currentTime = 3;
+                currentTime = 20;
                 infiniteMode = false;
                 startGame = true;
                 break;

@@ -31,7 +31,7 @@ public class GameOverController : MonoBehaviour
         if (timer.GetCurrentTime() <= Mathf.Epsilon)
         {
             gameOverCanvas.SetActive(true);
-
+           
         }
     }
 }
