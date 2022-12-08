@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 namespace MemoryPuzzle.Base
 {
     public class GameController : MonoBehaviour
@@ -18,7 +20,7 @@ namespace MemoryPuzzle.Base
             {
                 int newArray = array[i];
                 int j = Random.Range(i, array.Length);
-                array[i] = j;
+                array[i] = array[j];
                 array[j] = newArray;
             }
             return array;
@@ -34,10 +36,13 @@ namespace MemoryPuzzle.Base
                 {
                     ImageScript gameImage;
                     if (i == 0 && j == 0)
+                    {
                         gameImage = startObject;
+                    }
                     else
+                    {
                         gameImage = Instantiate(startObject);
-
+                    }
                     int index = j * colums + i;
                     int id = locations[index];
 
@@ -49,7 +54,61 @@ namespace MemoryPuzzle.Base
                     gameImage.transform.position = new Vector3(positionX, positionY, startPosition.z);
                 }
             }
+
         }
+
+
+
+        private ImageScript firstOpen;
+        private ImageScript secondOpen;
+
+
+        private int score = 0;
+        private int attemps = 0;
+
+        [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private TextMeshProUGUI attemptsText;
+        public bool canOpen
+        {
+            get { return secondOpen == null; }
+        }
+        public void imageOpened(ImageScript startObject)
+        {
+            if (firstOpen == null)
+                firstOpen = startObject;
+            else
+            {
+                secondOpen = startObject;
+                StartCoroutine(CheckGuessed());
+            }
+        }
+        private IEnumerator CheckGuessed()
+        {
+            if (firstOpen.SpriteId == secondOpen.SpriteId)
+            {
+                score++;
+                scoreText.text = "Score: " + score;
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.5f);
+                firstOpen.Close();
+                secondOpen.Close();
+            }
+            attemps++;
+            attemptsText.text = "Attems: " + attemps;
+
+            firstOpen = null;
+            secondOpen = null;
+        }
+        public void Restart()
+        {
+            SceneManager.LoadScene(0);
+        }
+
+
+
+
 
     }
 }
