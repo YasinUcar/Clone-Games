@@ -18,6 +18,5 @@ public class CircleController : MonoBehaviour
             transform.Rotate(0, 0, _speed * Time.deltaTime);
         else
             transform.Rotate(0, 0, -_speed * Time.deltaTime);
-
     }
 }

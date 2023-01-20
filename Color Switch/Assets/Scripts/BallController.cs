@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BallController : MonoBehaviour
 {
     [SerializeField] private float _jumpForce;
@@ -51,7 +51,15 @@ public class BallController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag == "Color Changer")
+        {
+            RandomColor();
+            Destroy(other.gameObject);
+            return;
+        }
         if (other.gameObject.tag != _currentColor)
-            print("Aynı renk değiller");
+            print("Game Over");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 }
